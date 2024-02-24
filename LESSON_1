@@ -29,6 +29,74 @@ auto var = 42; // компилятор определит, что перемен
 //Использование `auto` может упростить код и уменьшить вероятность ошибок при изменении типов данных. Однако стоит помнить, 
 //что целесообразно использовать `auto` в тех случаях, когда тип данных переменной легко определить по контексту.
 
+#include <iostream>
+#include <typeinfo>
+
+using namespace std;
+
+int main() {
+  // Объявление переменных разных типов и размеров:
+
+  int a = 10;
+  long int b = 1000000000;
+  short int c = 30000;
+
+  float d = 3.14;
+  double e = 1.23456789;
+  long double f = 1.23456789123456789;
+
+  char g = 'A';
+  wchar_t h = L'Б';
+
+  string i = "Hello, world!";
+
+  bool j = true;
+
+  // Вывод размера и типа переменных на консоль:
+
+  cout << "Переменная a:" << endl;
+  cout << "  Тип: " << typeid(a).name() << endl;
+  cout << "  Размер: " << sizeof(a) << " байт" << endl;
+
+  cout << "Переменная b:" << endl;
+  cout << "  Тип: " << typeid(b).name() << endl;
+  cout << "  Размер: " << sizeof(b) << " байт" << endl;
+
+  cout << "Переменная c:" << endl;
+  cout << "  Тип: " << typeid(c).name() << endl;
+  cout << "  Размер: " << sizeof(c) << " байт" << endl;
+
+  cout << "Переменная d:" << endl;
+  cout << "  Тип: " << typeid(d).name() << endl;
+  cout << "  Размер: " << sizeof(d) << " байт" << endl;
+
+  cout << "Переменная e:" << endl;
+  cout << "  Тип: " << typeid(e).name() << endl;
+  cout << "  Размер: " << sizeof(e) << " байт" << endl;
+
+  cout << "Переменная f:" << endl;
+  cout << "  Тип: " << typeid(f).name() << endl;
+  cout << "  Размер: " << sizeof(f) << " байт" << endl;
+
+  cout << "Переменная g:" << endl;
+  cout << "  Тип: " << typeid(g).name() << endl;
+  cout << "  Размер: " << sizeof(g) << " байт" << endl;
+
+  cout << "Переменная h:" << endl;
+  cout << "  Тип: " << typeid(h).name() << endl;
+  cout << "  Размер: " << sizeof(h) << " байт" << endl;
+
+  cout << "Переменная i:" << endl;
+  cout << "  Тип: " << typeid(i).name() << endl;
+  cout << "  Размер: " << sizeof(i) << " байт" << endl;
+
+  cout << "Переменная j:" << endl;
+  cout << "  Тип: " << typeid(j).name() << endl;
+  cout << "  Размер: " << sizeof(j) << " байт" << endl;
+
+  return 0;
+}
+
 //Потоки ввода и вывода:
 
 #include<iostream>
