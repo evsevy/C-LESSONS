@@ -1,0 +1,310 @@
+/******************************************************************************
+==================================ВЕТВЛЕНИЯ====================================
+*******************************************************************************/
+#include <iostream>
+#include <cstdlib>
+
+int memoryCounter, memoryCounter2, memoryCounter3 = 0;
+
+
+void function1() {
+    std::cout << "Function 1 called" << std::endl;
+    memoryCounter += sizeof(void*);
+}
+
+void function2() {
+    memoryCounter2 += sizeof(void*);
+    std::cout << "Function 2 called! "<<"РАСХОД ПАМЯТИ: "<< memoryCounter2 << std::endl;
+   // memoryCounter += sizeof(void*);
+}
+
+void function3() {
+    memoryCounter3 += sizeof(void*);
+    std::cout << "Function 3 called" <<"РАСХОД ПАМЯТИ: "<< memoryCounter3 <<std::endl;
+    //memoryCounter3 += sizeof(void*);
+}
+
+void function4() {
+    std::cout << "Function 4 called" << std::endl;
+    memoryCounter += sizeof(void*);
+}
+
+void function5() {
+    std::cout << "Function 5 called" << std::endl;
+    memoryCounter += sizeof(void*);
+}
+
+int main() {
+    char input;
+    
+    while (true) {
+        std::cout << "Press 1, 2, 3, 4, 5 to call respective functions or any other key to exit" << std::endl;
+        std::cin >> input;
+        
+        switch(input) {
+            case '1':
+                function1();
+                break;
+            case '2':
+                function2();
+                break;
+            case '3':
+                function3();
+                break;
+            case '4':
+                function4();
+                break;
+            case '5':
+                function5();
+                break;
+            default:
+                std::cout << "Exiting program" << std::endl;
+                std::cout << "Memory used by program: " << memoryCounter << " bytes" << std::endl;
+                return 0;
+        }
+    }
+    
+    return 0;
+}
+
+/*
+
+#include <iostream>
+
+void func1() {
+    std::cout << "Function 1 called" << std::endl;
+}
+
+void func2() {
+    std::cout << "Function 2 called" << std::endl;
+}
+
+void func3() {
+    std::cout << "Function 3 called" << std::endl;
+}
+
+void func4() {
+    std::cout << "Function 4 called" << std::endl;
+}
+
+void func5() {
+    std::cout << "Function 5 called" << std::endl;
+}
+
+int main() {
+    int choice;
+
+    while (true) {
+        std::cout << "Enter a number from 1 to 5 to call a function (enter 0 to exit): ";
+        std::cin >> choice;
+
+        if (choice == 1) {
+            func1();
+        } else if (choice == 2) {
+            func2();
+        } else if (choice == 3) {
+            func3();
+        } else if (choice == 4) {
+            func4();
+        } else if (choice == 5) {
+            func5();
+        } else if (choice == 0) {
+            break;
+        } else {
+            std::cout << "Invalid choice! Please enter a number from 1 to 5." << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+
+#include <iostream>
+
+void function1() {
+    std::cout << "Function 1 called" << std::endl;
+}
+
+void function2() {
+    std::cout << "Function 2 called" << std::endl;
+}
+
+void function3() {
+    std::cout << "Function 3 called" << std::endl;
+}
+
+void function4() {
+    std::cout << "Function 4 called" << std::endl;
+}
+
+void function5() {
+    std::cout << "Function 5 called" << std::endl;
+}
+
+int main() {
+    int choice;
+
+    std::cout << "Press 1, 2, 3, 4, or 5 to call a function: ";
+    std::cin >> choice;
+
+    switch(choice) {
+        case 1:
+            function1();
+            break;
+        case 2:
+            function2();
+            break;
+        case 3:
+            function3();
+            break;
+        case 4:
+            function4();
+            break;
+        case 5:
+            function5();
+            break;
+        default:
+            std::cout << "Invalid choice" << std::endl;
+    }
+
+    return 0;
+}
+*/
+
+1. Пример вложенного ветвления:
+
+#include <iostream>
+
+int main() {
+    int x = 10;
+    int y = 20;
+
+    if (x == 10) {
+        if (y == 20) {
+            std::cout << "Both x and y are equal to their respective values" << std::endl;
+        } else {
+            std::cout << "x is equal to its value, but y is not equal to its value" << std::endl;
+        }
+    } else {
+        std::cout << "x is not equal to its value" << std::endl;
+    }
+
+    return 0;
+}
+
+
+//2. Пример вложенного ветвления с использованием else if:
+
+#include <iostream>
+
+int main() {
+    int num = 15;
+
+    if (num < 10) {
+        std::cout << "Number is less than 10" << std::endl;
+    } else if (num >= 10 && num < 20) {
+        std::cout << "Number is between 10 and 19" << std::endl;
+    } else {
+        std::cout << "Number is greater than or equal to 20" << std::endl;
+    }
+
+    return 0;
+}
+
+//Пример 1: Ветвление с циклом while
+
+#include <iostream>
+
+int main() {
+    int num;
+    std::cout << "Введите число: ";
+    std::cin >> num;
+
+    while (num > 0) {
+        if (num % 2 == 0) {
+            std::cout << num << " - четное число" << std::endl;
+        } else {
+            std::cout << num << " - нечетное число" << std::endl;
+        }
+
+        num--;
+    }
+
+    return 0;
+}
+
+
+//Пример 2: Ветвление с циклом for
+
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Введите число: ";
+    std::cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        if (i % 2 == 0) {
+            std::cout << i << " - четное число" << std::endl;
+        } else {
+            std::cout << i << " - нечетное число" << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+
+Оба примера демонстрируют ветвление (оператор if) внутри цикла while и for. 
+В первом примере вводится число, и в цикле while проверяется его четность/нечетность. 
+Во втором примере также вводится число, но используется цикл for для вывода всех чисел 
+от 1 до введенного числа с проверкой на четность/нечетность.
+
+/******************************************************************************
+==================================ЦИКЛЫ========================================
+*******************************************************************************/
+
+Примеры бесконечных циклов на C++:
+
+1. Цикл while:
+
+while(true) {
+   // Бесконечный цикл
+}
+
+
+2. Цикл do-while:
+
+do {
+   // Бесконечный цикл
+} while(true);
+
+
+3. Цикл for:
+
+for(;;) {
+   // Бесконечный цикл
+}
+
+
+4. Вложенные циклы:
+
+while(true) {
+   for(;;) {
+      // Бесконечный цикл
+   }
+}
+
+
+5. Цикл с условием, которое всегда истинно:
+
+while(1 == 1) {
+   // Бесконечный цикл
+}
+
+
+
+
+
+
+
