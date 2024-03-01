@@ -1,0 +1,181 @@
+/******************************************************************************
+==============ФУНКЦИИ ИХ ВИДЫ И РЕАЛИЗАЦИЯ В ПРОГРАММНОМ КОДЕ==================
+*******************************************************************************/
+
+//Объявление функции без параметров:
+
+
+void printMessage() {
+    std::cout << "Hello, World!" << std::endl;
+}
+
+
+//Функция с параметрами:
+
+
+void add(int a, int b) {
+    std::cout << "Sum: " << a + b << std::endl;
+}
+
+
+//Лямбда-функция:
+
+
+auto multiply = [](int a, int b) {
+    return a * b;
+};
+
+
+#include <iostream>
+
+int main() {
+    int a = 10;
+    
+    // Лямбда функция с ссылками
+    auto lambda = [&a]() {
+        a += 5;
+    };
+    
+    lambda();
+    
+    std::cout << a << std::endl; // Выводит 15
+    
+    return 0;
+}
+
+
+
+//Вложенная функция:
+
+
+void outerFunction() {
+    void innerFunction() {
+        std::cout << "Inner function" << std::endl;
+    }
+    innerFunction();
+}
+
+
+//Функция в переменной:
+
+
+auto greet = []() {
+    std::cout << "Hello!" << std::endl;
+};
+greet();
+
+
+//Функция в цикле и ветвлении:
+
+for (int i = 0; i < 5; i++) {
+    if (i % 2 == 0) {
+        std::cout << i << " is even" << std::endl;
+    } else {
+        std::cout << i << " is odd" << std::endl;
+    }
+}
+
+
+//Метод класса с конструктором:
+
+class MyClass {
+public:
+    MyClass(int value) : m_value(value) {}
+    
+    void printValue() {
+        std::cout << "Value: " << m_value << std::endl;
+    }
+
+private:
+    int m_value;
+};
+
+//Пример функции в цикле с параметрами и возвращающей ссылочный тип данных:
+
+
+#include <iostream>
+
+int& increment(int& num) {
+    num++;
+    return num;
+}
+
+int main() {
+    int number = 5;
+
+    for (int i = 0; i < 3; i++) {
+        std::cout << "Number before increment: " << number << std::endl;
+        increment(number) = number;
+        std::cout << "Number after increment: " << number << std::endl;
+    }
+
+    return 0;
+}
+
+/*
+В этом примере функция `increment` принимает ссылку на `int` 
+и увеличивает значение этой переменной на 1. 
+Функция возвращает ссылку на измененную переменную, что позволяет нам использовать её для присваивания значения. 
+В `main` функции мы используем цикл для увеличения значения `number` на 1 три раза и выводим результат на экран.
+*/
+
+//Пример передачи ссылки на данные из одной функции в другую в C++:
+
+
+#include <iostream>
+
+// Функция, которая принимает ссылку на int
+void modifyNumber(int& number) {
+    number *= 2;
+}
+
+// Функция, которая вызывает modifyNumber и передает ссылку на int
+void processData(int& data) {
+    modifyNumber(data);
+}
+
+int main() {
+    int value = 5;
+    std::cout << "Before: " << value << std::endl;
+
+    // Передаем ссылку на переменную value в функцию processData
+    processData(value);
+
+    std::cout << "After: " << value << std::endl;
+
+    return 0;
+}
+
+/*
+Этот код создает две функции: `modifyNumber`, которая умножает число на 2, 
+и `processData`, которая вызывает `modifyNumber` и передает ей ссылку на переменную типа int. 
+В `main` создается переменная `value`, ее значение выводится на экран, затем передается в `processData`, 
+и после этого значение переменной `value` также выводится на экран.
+Как результат, значение переменной `value` удваивается после вызовов функций.
+*/
+
+Рекурсивная функция в языке программирования C++ - это функция, 
+которая вызывает саму себя внутри своего тела. Рекурсия часто используется для решения задач, которые могут быть разбиты на более простые подзадачи.
+
+Пример рекурсивной функции в C++:
+
+#include <iostream>
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n-1);
+    }
+}
+
+int main() {
+    int num = 5;
+    std::cout << "Факториал числа " << num << " равен " << factorial(num) << std::endl;
+    
+    return 0;
+}
+
+В данном примере функция `factorial` рекурсивно вычисляет факториал числа. 
+Когда `n` становится равным 0, функция начинает возвращать 1, иначе она умножает `n` на результат вызова себя для `n-1`.
+Однако нужно быть осторожным с рекурсивными функциями, так как неправильное использование может привести к бесконечному циклу или переполнению стека вызовов.
