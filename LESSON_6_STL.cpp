@@ -234,7 +234,76 @@ int main ()
  }
 return 0;
  }
- 
+
+/////////////////////////Queue--очередь///////////////////////////////
+
+#include <iostream>
+#include <queue>
+
+class Queue {
+private:
+    std::queue<int> q;
+
+public:
+    void push(int val) {
+        q.push(val);
+    }
+
+    void pop() {
+        if (!q.empty()) {
+            q.pop();
+        } else {
+            std::cout << "Queue is empty!" << std::endl;
+        }
+    }
+
+    int front() {
+        if (!q.empty()) {
+            return q.front();
+        } else {
+            std::cout << "Queue is empty!" << std::endl;
+            return -1;
+        }
+    }
+
+    int size() {
+        return q.size();
+    }
+
+    bool isEmpty() {
+        return q.empty();
+    }
+};
+
+int main() {
+    Queue q;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    std::cout << "Front element: " << q.front() << std::endl;
+    std::cout << "Queue size: " << q.size() << std::endl;
+
+    q.pop();
+    std::cout << "Front element after pop: " << q.front() << std::endl;
+
+    if (q.isEmpty()) {
+        std::cout << "Queue is empty" << std::endl;
+    } else {
+        std::cout << "Queue is not empty" << std::endl;
+    }
+
+    return 0;
+}
+
+Описание методов класса Queue:
+1. `push(int val)`: добавляет элемент `val` в конец очереди.
+2. `pop()`: удаляет элемент из начала очереди, если очередь не пустая. Иначе выводит сообщение об ошибке.
+3. `front()`: возвращает значение элемента из начала очереди, если очередь не пустая. Иначе выводит сообщение об ошибке и возвращает -1.
+4. `size()`: возвращает количество элементов в очереди.
+5. `isEmpty()`: возвращает true, если очередь пуста, и false в противном случае.
+
  ////////////////////LIST/FORWARD_LIST--СПИСКИ ОДНОСВЯЗНЫЕ И ДВУХСВЯЗНЫЕ///////////////////////////////////////
  #include <iostream>
 #include <list>
